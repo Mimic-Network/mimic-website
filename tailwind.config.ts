@@ -20,8 +20,31 @@ const config: Config = {
           900: "#2F58B0",
         },
         secondary: {
-          900: "#4A4A4A"
-        }
+          900: "#4A4A4A",
+        },
+        green: {
+          900: "#2FB034",
+        },
+        violet: {
+          900: "#B02FA3",
+        },
+        orange: {
+          900: "#B0A32F",
+        },
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },
