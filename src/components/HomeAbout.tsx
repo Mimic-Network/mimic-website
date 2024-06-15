@@ -16,7 +16,7 @@ const HomeAbout: React.FC<IHomeAboutProps> = () => {
     []
   );
   return (
-    <section className="flex w-10/12 mx-auto text-secondary-900">
+    <section className="flex w-10/12 mx-auto text-secondary-900 py-32">
       <div className="flex-1 flex-col space-y-10">
         <div className="flex flex-col space-y-3.5">
           <div>
