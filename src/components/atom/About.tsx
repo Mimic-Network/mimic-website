@@ -24,18 +24,18 @@ const About: React.FC<IAboutProps> = (props) => {
     prefetch("/about");
   }, [prefetch]);
   return (
-    <section className="flex w-10/12 mx-auto text-secondary-900 py-28">
+    <section className="flex w-11/12 lg:flex-row flex-col mx-auto text-secondary-900 py-28">
       <div className="flex-1 flex-col space-y-10">
         <div className="flex flex-col space-y-3.5">
           <div>
-            <span className="bg-black/10 py-1.5 px-5 text-xs rounded-full">
+            <span className="bg-black/10 py-1.5 px-5 md:text-xs text-2xs rounded-full">
               About Mimic
             </span>
-            <h2 className="text-5xl font-semibold w-10/12 leading-snug text-primary-900">
+            <h2 className="lg:text-5xl md:text-4xl text-2xl font-semibold w-10/12 lg:leading-snug md:leading-[48px] lg:mt-0 mt-2 text-primary-900">
               The Futuristic Platform for Social Networking
             </h2>
           </div>
-          <p className={`leading-8 ${poppins.className}`}>
+          <p className={`lg:leading-8 leading-loose ${poppins.className} lg:text-base text-sm`}>
             Mimic is a cutting-edge social networking platform designed to
             connect users through shared interests, live interactions, and
             dynamic event discovery. Our mission is to provide a seamless and
@@ -45,21 +45,21 @@ const About: React.FC<IAboutProps> = (props) => {
         </div>
         <div className={`flex flex-col space-y-5 ${poppins.className}`}>
           {FEATURES.map((feature) => (
-            <div key={feature} className="flex">
-              <div className="bg-black text-primary-900 rounded-full p-2 mr-3 bg-primary-900/10">
-                <Check />
+            <div key={feature} className="flex items-center">
+              <div className="bg-black text-primary-900 rounded-full p-2 mr-3 bg-primary-900/10 h-fit">
+                <Check className="md:w-4.5 md:h-4.5" />
               </div>
-              <p className="font-medium my-2">{feature}</p>
+              <p className="font-medium my-2 lg:text-base text-sm">{feature}</p>
             </div>
           ))}
         </div>
         {props.hideLearnMore && (
-          <Button onClick={() => push("/about")} className="w-fit">
+          <Button onClick={() => push("/about")} className="w-fit px-16" >
             Learn more
           </Button>
         )}
       </div>
-      <div className="flex-1">
+      <div className="flex-1 lg:pt-0 md:pt-16 pt-12 mx-auto">
         <Image
           src="/home_about_illustration.png"
           alt="home about illustration"

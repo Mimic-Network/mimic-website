@@ -20,7 +20,7 @@ const DESCRIPTION = [
     description:
       "Mimic stands out from other social networking apps by offering a unique blend of social connectivity, local discovery, and task management. Our advanced features, such as SPOTS, live streaming, and Giftmojis, are designed to provide an engaging and practical user experience. Whether you're looking to explore new places, meet new friends, or organize your daily tasks, Mimic is your go-to app.",
     image: "why_mimic.png",
-    direction: "flex-col-reverse",
+    direction: "lg:flex-col-reverse flex-col",
   },
   {
     title: "Have questions?",
@@ -38,11 +38,11 @@ const Page: NextPage = () => {
   return (
     <main className="pt-20">
       <About />
-      <section className="flex w-10/12 justify-between mx-auto space-x-5 pb-28">
+      <section className="flex lg:flex-row flex-col md:w-10/12 w-11/12 justify-between mx-auto lg:space-x-5 lg:space-y-0 space-y-5 pb-28">
         {DESCRIPTION.map((desc, index) => (
           <div
             key={desc.title}
-            className={`flex w-10/12 mx-auto rounded-xl px-5 py-9 text-secondary-900 bg-primary-900/10 ${
+            className={`flex lg:w-10/12 mx-auto rounded-xl px-5 py-9 text-secondary-900 bg-primary-900/10 ${
               desc.direction ? desc.direction : "flex-col"
             }`}
           >
@@ -60,7 +60,7 @@ const Page: NextPage = () => {
               </h2>
               <p className={`leading-8 text-sm font-light ${poppins.className}`}>{desc.description}</p>
               {desc.cta && (
-                <button onClick={() => push(desc.cta.href)} className="w-fit">
+                <button onClick={() => push(desc.cta.href)} className="w-fit border-b-2 border-b-black pb-1 text-black">
                   {desc.cta.text}
                 </button>
               )}

@@ -50,14 +50,14 @@ const FAQ: React.FC<IFAQProps> = (props) => {
   const id = React.useId();
   const { push } = useRouter();
   return (
-    <section className="flex flex-col items-center space-y-10 py-8">
-      <h1 className="text-5xl font-bold text-primary-900">
+    <section className="flex flex-col md:items-center md:space-y-10 space-y-6 pt-8 pb-12">
+      <h1 className="lg:text-5xl md:text-4xl text-2xl w-11/12 mx-auto md:w-auto md:mx-0 font-bold text-primary-900">
         Frequently Asked Questions
       </h1>
       <Accordion
         type="single"
         collapsible
-        className="w-7/12 flex flex-col gap-5"
+        className="lg:w-7/12 md:w-10/12 w-11/12 mx-auto flex flex-col gap-5"
       >
         {FAQS.map((faq, index) => (
           <AccordionItem
@@ -74,17 +74,17 @@ const FAQ: React.FC<IFAQProps> = (props) => {
           </AccordionItem>
         ))}
       </Accordion>
-      <div className="bg-primary-900/10 flex w-10/12 justify-between items-center py-5 px-20 rounded-xl">
-        <div className="flex flex-col space-y-1.5">
-          <h2 className="text-xl font-bold text-primary-900 ">
+      <div className="bg-primary-900/10 flex md:flex-row flex-col md:w-10/12 w-11/12 mx-auto md:mx-0 justify-between md:items-center md:py-5 lg:px-20 md:px-9 px-6 py-4 rounded-xl md:space-y-0 space-y-6">
+        <div className="flex flex-col space-y-1.5 lg:basis-auto md:basis-8/12">
+          <h2 className="lg:text-xl text-base font-bold text-primary-900 ">
             Still have questions?
           </h2>
-          <p className="text-base text-secondary-900">
+          <p className="lg:text-base text-sm text-secondary-900">
             Cant find the answers you are looking for or you&apos;ve got more
             questions? reach out to us today
           </p>
         </div>
-        <Button onClick={() => push("/contact")}>Contact Us</Button>
+        <Button className="text-base md:text-sm w-fit px-12 md:px-8" onClick={() => push("/contact")}>Contact Us</Button>
       </div>
     </section>
   );

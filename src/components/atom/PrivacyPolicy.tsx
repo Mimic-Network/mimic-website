@@ -155,12 +155,12 @@ const PrivacyPolicy: React.FC<IPrivacyPolicyProps> = (props) => {
     <section className="relative w-full grid place-content-center min-h-[300px] max-w-[100vw] overflow-x-hidden">
       <div className="h-screen rounded-b-full -z-10 bg-primary-900 absolute mx-auto w-full  scale-x-[2] -top-[60vh] inset-x-0 mx-auto" />
       <div className="text-white flex flex-col items-center pt-56">
-        <h2 className="text-5xl font-bold leading-tight">Privacy policy</h2>
+        <h2 className="lg:text-5xl text-4xl font-bold leading-tight">Privacy policy</h2>
         <p className="leading-loose">Effective from June 2024</p>
       </div>
-      <div className="mt-48 w-6/12 mx-auto text-secondary-900">
+      <div className="lg:mt-48 md:mt-36 mt-24 lg:w-6/12 md:w-10/12 w-11/12 mx-auto text-secondary-900">
         {PRIVACY_POLICY.map((section, index) => (
-          <div key={index} className="w-10/12 mx-auto py-6">
+          <div key={index} className="lg:w-10/12 mx-auto py-6">
             <h3 className="text-xl text-primary-900 font-medium mb-4">
               {section.title}
             </h3>

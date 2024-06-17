@@ -8,7 +8,7 @@ export interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEleme
 
 const Button: React.FC<IButtonProps> = ({ children, className, ...props }) => {
   return (
-    <section
+    <button
       className={twMerge(
         "px-8 py-3 bg-black cursor-pointer text-white rounded-full",
         className
@@ -16,7 +16,7 @@ const Button: React.FC<IButtonProps> = ({ children, className, ...props }) => {
       {...props}
     >
       {children}
-    </section>
+    </button>
   );
 };
 export default Button;

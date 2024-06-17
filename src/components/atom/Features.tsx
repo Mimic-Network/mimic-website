@@ -63,18 +63,18 @@ const Features: React.FC<IFeaturesProps> = (props) => {
       <div 
       data-true={props.hideBg}
       className="bg-primary-900/5 data-true:bg-transparent min-h-screen pt-12 pb-20">
-        <div className="w-10/12 flex flex-col items-center mx-auto space-y-2">
-          <span className="bg-black/10 py-1.5 px-5 text-xs rounded-full">
+        <div className="w-11/12 md:w-10/12 flex flex-col items-center mx-auto lg:space-y-2 md:space-y-3.5">
+          <span className="bg-black/10 py-1.5 px-5 lg:text-xs text-2xs rounded-full">
             Features
           </span>
-          <h2 className="text-5xl leading-snug text-center w-7/12 font-bold text-primary-900">
+          <h2 className="lg:text-5xl md:text-4xl text-2xl leading-snug text-center lg:w-7/12 md:w-10/12 font-bold text-primary-900">
             Step into the Future with Mimic’s Advanced Features
           </h2>
-          <p>
+          <p className="lg:text-base text-sm text-center pt-3">
             Explore a suite of innovative features designed to connect, engage,
             and inspire you
           </p>
-          <div className="grid grid-cols-2 gap-5 justify-between place-content-between">
+          <div className="grid lg:grid-cols-2 grid-cols-1 gap-5 justify-between place-content-between lg:pt-0 pt-6">
             {
               FEATURES.map(val => (
                 <div key={val.heading} className="bg-white px-8 pt-6 rounded-md items-center flex flex-col">
@@ -86,7 +86,7 @@ const Features: React.FC<IFeaturesProps> = (props) => {
                     className=""
                   />
                   <div className="flex flex-col space-y-2 pt-5 pb-7">
-                    <h4 className="text-primary-900 font-semibold text-2xl">{val.heading}</h4>
+                    <h4 className="text-primary-900 font-semibold md:text-2xl text-xl">{val.heading}</h4>
                     <p className="text-sm leading-6">{val.description}</p>
                   </div>
                 </div>
@@ -97,10 +97,10 @@ const Features: React.FC<IFeaturesProps> = (props) => {
         </div>
       </div>
       <div className="bg-white py-16">
-        <div className="w-10/12 flex flex-col items-center mx-auto space-y-8">
-          <h1 className="text-4xl font-bold text-primary-900">Get familiar with how the app works</h1>
+        <div className="md:w-10/12 w-11/12 flex flex-col items-center mx-auto space-y-8">
+          <h1 className="lg:text-4xl md:text-3xl text-2xl text-center font-bold text-primary-900">Get familiar with how the app works</h1>
           <div
-          className="flex space-x-5"
+          className="grid lg:grid-cols-4 md:grid-cols-2 gap-5"
           >
             {
               HIGHLIGHTED_FEATURES.map(val => (

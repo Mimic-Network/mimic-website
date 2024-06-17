@@ -31,7 +31,7 @@ const WaitlistModal: React.FC<IWaitlistModalProps> = (props) => {
   return (
     <Sheet open={isOpen} onOpenChange={close}>
       <SheetContent side="center">
-        <div className="flex flex-col w-6/12 mx-auto py-11">
+        <div className="flex flex-col lg:w-6/12 md:w-9/12 w-11/12 mx-auto py-11 overflow-x-visible">
           <div className="flex items-center space-x-2 px-5 py-2 shadow-lg shadow-primary-900/10 w-fit mx-auto rounded-xl">
             <Image
               src="/waitlist/users.png"
