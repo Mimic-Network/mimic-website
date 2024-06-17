@@ -12,7 +12,7 @@ const Hero: React.FC<IHeroProps> = (props) => {
     <section className="h-[100vh] overflow-hidden relative text-white">
       <div className="h-screen rounded-b-full -z-10 bg-primary-900 absolute mx-auto w-full scale-x-[1.4] top-0 inset-x-0" />
       <div className="min-h-[110vh] rounded-full -z-10 bg-white/10 absolute m-auto w-full inset-x-0 -left-60 -top-48 blur-[80px]" />
-      <div className="pt-48 space-y-3 z-10 items-center text-center justify-center flex flex-col">
+      <div className="md:pt-48 pt-24 space-y-3 z-10 items-center text-center justify-center flex flex-col">
         <span className="bg-gradient-glassy w-fit lg:px-8 md:px-7 px-5 py-1.5 rounded-full lg:text-base md:text-xs text-2xs">
           Connect, Discover, and Achieve More with Mimic
         </span>
