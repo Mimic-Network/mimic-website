@@ -1,7 +1,13 @@
+import { Poppins } from "next/font/google";
 import Image from "next/image";
 import * as React from "react";
-
-export interface IFeaturesProps { }
+const poppins = Poppins({
+  weight: ["400"],
+  subsets: ["latin","latin-ext"],
+});
+export interface IFeaturesProps {
+  hideBg?: boolean;
+ }
 const FEATURES = [
   {
     image: 'spot_and_map.png',
@@ -54,7 +60,9 @@ const Features: React.FC<IFeaturesProps> = (props) => {
   
   return (
     <section className="w-full text-secondary-900">
-      <div className="bg-primary-900/5 min-h-screen pt-12 pb-20">
+      <div 
+      data-true={props.hideBg}
+      className="bg-primary-900/5 data-true:bg-transparent min-h-screen pt-12 pb-20">
         <div className="w-10/12 flex flex-col items-center mx-auto space-y-2">
           <span className="bg-black/10 py-1.5 px-5 text-xs rounded-full">
             Features
@@ -88,7 +96,7 @@ const Features: React.FC<IFeaturesProps> = (props) => {
           </div>
         </div>
       </div>
-      <div className="bg-white py-12">
+      <div className="bg-white py-16">
         <div className="w-10/12 flex flex-col items-center mx-auto space-y-8">
           <h1 className="text-4xl font-bold text-primary-900">Get familiar with how the app works</h1>
           <div
@@ -106,7 +114,7 @@ const Features: React.FC<IFeaturesProps> = (props) => {
                   />
                   <div className="flex flex-col space-y-2.5 pt-5">
                     <h4 className="text-black font-bold text-base">{val.heading}</h4>
-                    <p className="text-sm leading-6">{val.description}</p>
+                    <p className={`text-sm leading-6 ${poppins.className}`}>{val.description}</p>
                   </div>
                 </div>
               ))

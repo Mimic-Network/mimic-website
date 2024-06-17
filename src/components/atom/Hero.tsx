@@ -1,11 +1,13 @@
 import * as React from "react";
-import Button from "./ui/Button";
+import Button from "../ui/Button";
 import { MoveUpRight } from "lucide-react";
 import Image from "next/image";
+import { WaitlistContext } from '@src/components/providers/WaitlistProvider';
 
 export interface IHeroProps { }
 
 const Hero: React.FC<IHeroProps> = (props) => {
+  const { open } = React.useContext(WaitlistContext);
   return (
     <section className="h-[100vh] overflow-hidden relative text-white">
       <div className="h-screen rounded-b-full -z-10 bg-primary-900 absolute mx-auto w-full scale-x-[1.4] top-0 inset-x-0" />
@@ -22,7 +24,7 @@ const Hero: React.FC<IHeroProps> = (props) => {
           real-time interactions, and all-in-one task management
         </p>
         <div>
-          <Button className="shadow-white/25 shadow-md mt-6">
+          <Button onClick={open} className="shadow-white/25 shadow-md mt-6 pr-2 py-1.5">
             <div className="flex space-x-3 items-center">
               <span>Join the waitlist</span>
               <div className="w-12 h-12 grid place-content-center rounded-full bg-white text-black">
