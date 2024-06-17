@@ -12,3 +12,4 @@ export const addEmailToWaitList = async (email: string) => {
   );
   return request.json();
 };
+
