@@ -5,6 +5,9 @@ import * as React from "react";
 const Page: NextPage = () => {
   return (
     <main className="pt-32 flex flex-col space-y-16">
+      <title>
+        MIMIC - Contact Us
+      </title>
       <Contact />
       <CTA />
     </main>

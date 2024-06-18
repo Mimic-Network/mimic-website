@@ -37,8 +37,12 @@ const Page: NextPage = () => {
   const { push } = useRouter();
   return (
     <main className="pt-20">
+      <title>
+        MIMIC - About
+      </title>
       <About />
-      <section className="flex lg:flex-row flex-col md:w-10/12 w-11/12 justify-between mx-auto lg:space-x-5 lg:space-y-0 space-y-5 pb-28">
+      <section
+        className="flex lg:flex-row flex-col md:w-10/12 w-11/12 justify-between mx-auto lg:space-x-5 lg:space-y-0 space-y-5 pb-28">
         {DESCRIPTION.map((desc, index) => (
           <div
             key={desc.title}

@@ -7,6 +7,9 @@ import { CTA, FAQ, Features, Hero, About } from "@src/components/atom";
 export default function Home() {
   return (
     <main>
+      <title>
+         MIMIC - Connect, Discover, and Achieve
+      </title>
       <Hero />
       <About hideLearnMore />
       <Features />

@@ -5,6 +5,9 @@ import * as React from 'react';
 const Page: NextPage = () => {
   return (
     <main className="pt-28 bg-primary-900/5">
+      <title>
+        MIMIC - Features
+      </title>
       <Features hideBg />
       <CTA />
     </main>
