@@ -47,12 +47,12 @@ const CTA: React.FC<ICTAProps> = (props) => {
           />
         </div>
       </div>
-      <AbstractLeft className="absolute h-full left-0 inset-y-0 lg:h-full md:h-[460px] h-[520px]" />
+      <AbstractLeft className="absolute h-full left-0 inset-y-0 lg:h-full md:h-[460px] h-[50vh]" />
       <AbstractMiddle className="absolute h-full inset-x-0 m-auto inset-y-0 lg:block hidden" />
       <AbstractRight className="absolute h-full right-0 inset-y-0 -z-0 lg:block hidden" />
       <AbstractSmallRight className="absolute h-full right-0 bottom-1/4 -z-0 lg:hidden md:block md:h-[520px]  hidden" />
-      <AbstractTinyRight className="absolute h-full right-0 bottom-1/4 -z-0 lg:hidden block md:h-[520px] h-[520px]" />
-      <AbstractSmallBottomLeft className="absolute h-full left-0 bottom-0 -z-0 lg:hidden block md:h-[400px] h-64" />
+      <AbstractTinyRight className="absolute h-full right-0 bottom-1/4 -z-0 lg:hidden block md:h-[520px] h-[50vh]" />
+      <AbstractSmallBottomLeft className="absolute h-full left-0 bottom-0 -z-0 lg:hidden block md:h-[400px] h-[50vh]" />
     </section>
   );
 };

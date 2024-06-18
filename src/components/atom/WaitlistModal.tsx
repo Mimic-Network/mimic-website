@@ -38,14 +38,14 @@ const WaitlistModal: React.FC<IWaitlistModalProps> = (props) => {
               alt="Joined users"
               width={164}
               height={56}
-              className="h-12 w-auto"
+              className="lg:h-12 md:h-10 h-8 w-auto"
             />
             <div className="flex flex-col -space-y-1">
               <span className="text-primary-900 text-xs">+200 others</span>
               <span className="text-secondary-900 text-sm">have joined</span>
             </div>
           </div>
-          <h2 className="w-9/12 mt-2.5 text-center text-2xl font-medium mx-auto leading-9">
+          <h2 className="lg:w-9/12 md:w-7/12 w-11/12 mt-2.5 text-center md:text-2xl text-xl font-medium mx-auto leading-9">
             Join The Waitlistlist For{" "}
             <span className="text-primary-900">Exclusive Access</span>
           </h2>

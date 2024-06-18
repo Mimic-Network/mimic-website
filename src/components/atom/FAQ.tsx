@@ -63,9 +63,9 @@ const FAQ: React.FC<IFAQProps> = (props) => {
           <AccordionItem
             value={`item-${index}-${id}`}
             key={`item-${index}-${id}`}
-            className="bg-grey-200 px-6 border rounded-xl border-primary-900/10 h-fit text-secondary-900"
+            className="bg-grey-200 lg:px-6 md:px-5 px-2.5 lg:py-4 md:py-3 py-2.5 border rounded-xl border-primary-900/10 h-fit text-secondary-900"
           >
-            <AccordionTrigger className="text-base font-medium text-left">
+            <AccordionTrigger className="text-base font-medium text-left py-0">
               {faq.question}
             </AccordionTrigger>
             <AccordionContent className="text-grey-700 text-left text-sm">

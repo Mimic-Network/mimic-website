@@ -76,8 +76,8 @@ const Contact: React.FC<IContactProps> = (props) => {
                 <div className="flex flex-col space-y-6">
                   {CHANNELS.map((channel, index) => (
                     <div key={index} className="flex items-center space-x-5">
-                      <div className="w-16 h-16 grid place-content-center bg-white/[0.08] rounded-full">
-                        <channel.icon className="w-8 h-8" />
+                      <div className="lg:w-16 lg:h-16 md:h-14 md:w-14 w-12 h-12  grid place-content-center bg-white/[0.08] rounded-full">
+                        <channel.icon className="lg:w-8 lg:h-8 md:w-6 md:h-6 w-5 h-5" />
                       </div>
                       <div>
                         {channel.title && (
@@ -88,12 +88,12 @@ const Contact: React.FC<IContactProps> = (props) => {
                         {channel.href ? (
                           <Link
                             href={channel.href}
-                            className="text-xl font-semibold"
+                            className="lg:text-xl md:text-lg text-base font-semibold"
                           >
                             {channel.value}
                           </Link>
                         ) : (
-                          <p className="max-w-64 font-semibold">
+                          <p className="max-w-64 font-semibold lg:text-xl md:text-lg text-base">
                             {channel.value}
                           </p>
                         )}
