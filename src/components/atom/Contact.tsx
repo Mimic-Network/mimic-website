@@ -7,6 +7,8 @@ import { Label } from "@src/components/ui/Label";
 import { Input } from "@src/components/ui/Input";
 import { Textarea } from "@src/components/ui/TextArea";
 import Button from "@src/components/ui/Button";
+import { addDetailsToContact } from "@src/lib/utils";
+import { useState } from "react";
 
 export interface IContactProps {}
 
@@ -48,6 +50,24 @@ const SOCIALS = [
   },
 ];
 const Contact: React.FC<IContactProps> = (props) => {
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [subject, setSubject] = React.useState("");
+  const [message, setMessage] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
+  const [submitted, setSubmitted] = React.useState(false);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    await addDetailsToContact({
+      name,
+      email,
+      subject,
+      message,
+    });
+    setSubmitted(true);
+    setLoading(false);
+  };
   return (
     <section>
       <div className="data-true:bg-transparent pt-12">
@@ -59,16 +79,18 @@ const Contact: React.FC<IContactProps> = (props) => {
             <h2 className="lg:text-5xl md:text-4xl text-2xl leading-snug lg:w-7/12 font-bold text-secondary-800">
               Get in Touch with Mimic
             </h2>
-            <p className={`lg:w-7/12 lg:text-base text-sm leading-loose ${poppins.className}`}>
+            <p
+              className={`lg:w-7/12 lg:text-base text-sm leading-loose ${poppins.className}`}
+            >
               We&apos;d love to hear from you! Whether you have questions,
               feedback, or need assistance, our team is here to help. Reach out
               to us through any of the following methods
             </p>
           </div>
           <div
-            className={`flex lg:flex-col flex-col w-full mt-12 lg:border-[0.5px] border-primary-900 rounded-3xl ${poppins.className} overflow-clip items-center`}
+            className={`flex lg:flex-row flex-col w-full mt-12 lg:border-[0.5px] border-primary-900 rounded-3xl ${poppins.className} overflow-clip items-center`}
           >
-            <div className="flex rounded-3xl flex-col bg-primary-900 lg:basis-5/12 w-full py-18 text-white md:pl-18 pl-10 space-y-28">
+            <div className="flex lg:rounded-none rounded-3xl flex-col bg-primary-900 lg:basis-5/12 w-full py-18 text-white md:pl-18 pl-10 space-y-28">
               <div className="flex flex-col space-y-10">
                 <h3 className="flex flex-col space-y-4 text-4xl font-semibold tracking-tight">
                   Get in touch
@@ -127,27 +149,58 @@ const Contact: React.FC<IContactProps> = (props) => {
                 </div>
               </div>
             </div>
-            <form className="lg:px-15 py-15 lg:py-0 lg:basis-7/12 w-full flex flex-col space-y-6">
+            <form
+              onSubmit={handleSubmit}
+              className="lg:px-15 py-15 lg:py-0 lg:basis-7/12 w-full flex flex-col space-y-6"
+            >
               <div className={"flex gap-4 w-full"}>
                 <div className="basis-6/12 flex flex-col space-y-4">
                   <Label>Name</Label>
-                  <Input placeholder="Full name" />
+                  <Input
+                    placeholder="Full name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
                 </div>
                 <div className="basis-6/12 flex flex-col space-y-4">
                   <Label>Email</Label>
-                  <Input placeholder="Email addresss" />
+                  <Input
+                    placeholder="Email addresss"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
                 </div>
               </div>
               <div className="w-full flex flex-col space-y-4">
                 <Label>Subject</Label>
-                <Input placeholder="Subject" />
+                <Input
+                  placeholder="Subject"
+                  value={subject}
+                  onChange={(e) => setSubject(e.target.value)}
+                />
               </div>
               <div className="w-full flex flex-col space-y-4">
                 <Label>Message</Label>
-                <Textarea cols={30} rows={10} placeholder="Type your message" />
+                <Textarea
+                  cols={30}
+                  rows={10}
+                  placeholder="Type your message"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                />
               </div>
-              <Button className="bg-primary-900 w-fit rounded-md">
-                Send Message
+              {submitted && (
+                <p className="text-green-700">
+                  Your message has been sent successfully. We will get back to
+                  you shortly
+                </p>
+              )}
+              <Button
+                disabled={loading}
+                type="submit"
+                className="bg-primary-900 w-fit rounded-md"
+              >
+                {loading ? "Saving..." : "Send Message"}
               </Button>
             </form>
           </div>

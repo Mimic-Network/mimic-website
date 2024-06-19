@@ -13,6 +13,7 @@ import { Label } from "@src/components/ui/Label";
 import { Input } from "@src/components/ui/Input";
 import Button from "@src/components/ui/Button";
 import { X } from "lucide-react";
+import { addDetailsToWaitList } from "@src/lib/utils";
 
 export interface IWaitlistModalProps {}
 
@@ -28,6 +29,22 @@ const WaitlistModal: React.FC<IWaitlistModalProps> = (props) => {
   const { isOpen, close } = React.useContext(WaitlistContext);
   const [selectedFeatures, setSelectedFeatures] = React.useState<string[]>([]);
   const features = FEATURES.filter((val) => !selectedFeatures.includes(val));
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [phone, setPhone] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    const details = await addDetailsToWaitList({
+      email,
+      features: selectedFeatures,
+      name,
+      phone_number: phone,
+    });
+    setLoading(false);
+    close();
+  };
   return (
     <Sheet open={isOpen} onOpenChange={close}>
       <SheetContent side="center">
@@ -46,7 +63,7 @@ const WaitlistModal: React.FC<IWaitlistModalProps> = (props) => {
             </div>
           </div>
           <h2 className="lg:w-9/12 md:w-7/12 w-11/12 mt-2.5 text-center md:text-2xl text-xl font-medium mx-auto leading-9">
-            Join The Waitlistlist For{" "}
+            Join The Waitlist For{" "}
             <span className="text-primary-900">Exclusive Access</span>
           </h2>
           <p className="text-center text-[10px] text-secondary-500">
@@ -54,12 +71,14 @@ const WaitlistModal: React.FC<IWaitlistModalProps> = (props) => {
             Mimic&apos;s features, connect with new friends, discover events,
             and manage tasks like never before
           </p>
-          <form className="flex flex-col gap-6 mt-9">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-6 mt-9">
             <div className="flex flex-col space-y-2">
               <Label className="text-black/50">Name</Label>
               <Input
                 placeholder="Enter name"
                 className="border border-secondary-100"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div className="flex flex-col space-y-2">
@@ -67,6 +86,8 @@ const WaitlistModal: React.FC<IWaitlistModalProps> = (props) => {
               <Input
                 placeholder="Enter Mail"
                 className="border border-secondary-100"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="flex flex-col space-y-2">
@@ -74,6 +95,8 @@ const WaitlistModal: React.FC<IWaitlistModalProps> = (props) => {
               <Input
                 placeholder="Enter Number"
                 className="border border-secondary-100"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
               />
             </div>
             <div className="flex flex-col space-y-2">
@@ -116,8 +139,12 @@ const WaitlistModal: React.FC<IWaitlistModalProps> = (props) => {
                 </div>
               ))}
             </div>
-            <Button className="text-center py-2.5 leading-6 mt-4">
-              Join waitlist
+            <Button
+              disabled={loading}
+              type="submit"
+              className="text-center py-2.5 leading-6 mt-4 disabled:opacity-50"
+            >
+              {loading ? "Saving..." : "Join waitlist"}
             </Button>
           </form>
         </div>

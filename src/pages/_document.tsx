@@ -70,8 +70,8 @@ export default function Document() {
         <meta name="msapplication-TileColor" content="#2F58B0" />
       </Head>
       <body>
-      <Main />
-      <NextScript />
+        <Main />
+        <NextScript />
       </body>
     </Html>
   );

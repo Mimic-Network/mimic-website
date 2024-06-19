@@ -4,10 +4,9 @@ import { Poppins } from "next/font/google";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import * as React from "react";
-const poppins = Poppins({
-  weight: ["300"],
-  subsets: ["latin","latin-ext"],
-});
+import AboutCard from "@src/components/ui/AboutCard";
+import { getDirection } from "@src/components/atom/Features";
+
 const DESCRIPTION = [
   {
     title: "Objective",
@@ -34,42 +33,17 @@ const DESCRIPTION = [
   },
 ];
 const Page: NextPage = () => {
-  const { push } = useRouter();
   return (
     <main className="pt-20">
-      <title>
-        MIMIC - About
-      </title>
+      <title>MIMIC - About</title>
       <About />
-      <section
-        className="flex lg:flex-row flex-col md:w-10/12 w-11/12 justify-between mx-auto lg:space-x-5 lg:space-y-0 space-y-5 pb-28">
+      <section className="flex lg:flex-row flex-col md:w-10/12 w-11/12 justify-between mx-auto lg:space-x-5 lg:space-y-0 space-y-5 pb-28">
         {DESCRIPTION.map((desc, index) => (
-          <div
+          <AboutCard
+            position={getDirection(index)}
+            {...desc}
             key={desc.title}
-            className={`flex lg:w-10/12 mx-auto rounded-xl px-5 py-9 text-secondary-900 bg-primary-900/10 ${
-              desc.direction ? desc.direction : "flex-col"
-            }`}
-          >
-            <div className="flex-1">
-              <Image
-                src={`/description/${desc.image}`}
-                alt={desc.title}
-                width={654}
-                height={659}
-              />
-            </div>
-            <div className="flex flex-col space-y-2.5">
-              <h2 className="text-2xl font-semibold w-10/12 leading-snug text-primary-900">
-                {desc.title}
-              </h2>
-              <p className={`leading-8 text-sm font-light ${poppins.className}`}>{desc.description}</p>
-              {desc.cta && (
-                <button onClick={() => push(desc.cta.href)} className="w-fit border-b-2 border-b-black pb-1 text-black">
-                  {desc.cta.text}
-                </button>
-              )}
-            </div>
-          </div>
+          />
         ))}
       </section>
       <CTA />

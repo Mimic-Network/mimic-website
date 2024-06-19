@@ -6,10 +6,58 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const addEmailToWaitList = async (email: string) => {
-  const request = await fetch(
-    `https://script.google.com/macros/s/AKfycbynJ9YC105ox1if7rvgN9EbgUuAwt-XXkwU47MWtEy-muQ8U0JOeiBF8ZeK6mwt3Hzz/exec?email=${email}`
-  );
-  return request.json();
-};
+interface UserDetail {
+  name: string;
+  phone_number: string;
+  email: string;
+  features: Array<string>;
+}
+interface ContactDetail {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
 
+export const addDetailsToWaitList = async (body: UserDetail) => {
+  try {
+    const BASE_URL =
+      "https://script.google.com/macros/s/AKfycbx_oRiOQ_QE2UeCO-VOD3i8pvGYZeW094ngqNutSNFO00HRBBbYGHKcCgF8vrxN6-XaPQ/exec";
+
+    const request = await fetch(BASE_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      mode: "no-cors",
+      body: JSON.stringify(body),
+    });
+    if (!request.ok) {
+      return;
+    }
+    return;
+  } catch (e) {
+    return;
+  }
+};
+export const addDetailsToContact = async (body: ContactDetail) => {
+  try {
+    const BASE_URL =
+      "https://script.google.com/macros/s/AKfycbytmFqstHbIXPM3R3TY_d1Rix3qdn-AX7SZFsACLKw3i3fY4FC5mP_lmLWnPKPkRxrv/exec";
+
+    const request = await fetch(BASE_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      mode: "no-cors",
+      body: JSON.stringify(body),
+    });
+    if (!request.ok) {
+      return;
+    }
+    return;
+  } catch (e) {
+    return;
+  }
+};
