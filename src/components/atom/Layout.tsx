@@ -13,7 +13,7 @@ const Layout: React.FC<ILayoutProps> = (props) => {
   const { pathname } = useRouter();
   return (
     <motion.section
-      className={`min-height-screen ${mulish.className}`}
+      className={`min-height-screen ${mulish.className} w-screen overflow-x-hidden`}
       initial="initial"
       animate="animate"
       exit="exit"
