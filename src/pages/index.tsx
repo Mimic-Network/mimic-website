@@ -6,7 +6,7 @@ import { CTA, FAQ, Features, Hero, About } from "@src/components/atom";
 
 export default function Home() {
   return (
-    <main>
+    <main className="w-screen overflow-x-hidden">
       <title>
          MIMIC - Connect, Discover, and Achieve
       </title>

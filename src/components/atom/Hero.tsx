@@ -12,8 +12,8 @@ export interface IHeroProps {}
 const Hero: React.FC<IHeroProps> = (props) => {
   const { open } = React.useContext(WaitlistContext);
   return (
-    <section className="lg:h-screen h-[767px]  md:max-h-[994px] md:h-screen lg:max-h-screen overflow-hidden relative text-white">
-      <div className="h-[770px] md:max-h-[1006px] lg:max-h-screen md:h-screen rounded-b-full -z-10 bg-primary-900 absolute mx-auto w-full scale-x-[1.4] top-0 inset-x-0" />
+    <section className="lg:h-[1024px] h-[767px]  md:max-h-[994px] md:h-screen overflow-hidden relative text-white">
+      <div className="h-[770px] md:h-[1006px] lg:h-[998px] rounded-b-full -z-10 bg-primary-900 absolute mx-auto w-full scale-x-[1.4] top-0 inset-x-0" />
       <div className="min-h-[110vh] rounded-full -z-10 bg-white/10 absolute m-auto w-full inset-x-0 -left-60 -top-48 blur-[80px]" />
       <div className="md:pt-48 pt-30 space-y-3 z-10 items-center text-center justify-center flex flex-col">
         <span className="bg-gradient-glassy w-fit lg:px-8 md:px-7 px-5 py-1.5 rounded-full lg:text-base md:text-xs text-2xs">
