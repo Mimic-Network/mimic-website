@@ -62,7 +62,7 @@ const Navbar: React.FC<INavbarProps> = (props) => {
         />
       </Link>
       <div
-        className="fixed left-0 right-0 basis-[55%] justify-between inset-y-0 gap-8 top-0 h-full z-30 w-full lg:w-auto items-center flex translate-x-[100%] flex-col gap-4 px-5 py-8 transition-transform duration-700 ease-in-out data-true:-translate-x-0 data-true:bg-black data-true:backdrop-blur-xl lg:relative lg:inset-auto lg:top-0 lg:flex lg:translate-x-0 lg:flex-row lg:items-center  lg:space-x-2 lg:space-y-0 lg:px-0 lg:py-0 lg:data-true:translate-x-0 lg:data-true:bg-transparent"
+        className="fixed left-0 right-0 basis-[65%] justify-between inset-y-0 gap-8 top-0 h-full z-30 w-full lg:w-auto items-center flex translate-x-[100%] flex-col gap-4 px-5 py-8 transition-transform duration-700 ease-in-out data-true:-translate-x-0 data-true:bg-black data-true:backdrop-blur-xl lg:relative lg:inset-auto lg:top-0 lg:flex lg:translate-x-0 lg:flex-row lg:items-center  lg:space-x-2 lg:space-y-0 lg:px-0 lg:py-0 lg:data-true:translate-x-0 lg:data-true:bg-transparent"
         data-true={isMenuOpen}
       >
         <div className="flex w-full lg:w-auto md:gap-12 gap-3 lg:flex-row flex-col items-center text-xl lg:text-sm mt-36 lg:mt-0">
