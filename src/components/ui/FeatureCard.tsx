@@ -20,7 +20,7 @@ const poppins = Poppins({
 const FeatureCard: React.FC<IFeatureCardProps> = (props) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInVIew = useInView(ref, {
-    amount: 0.5,
+    amount: 0.15,
   });
   const mainControls = useAnimation();
   useEffect(() => {
@@ -60,7 +60,7 @@ const FeatureCard: React.FC<IFeatureCardProps> = (props) => {
       transition={{
         ease: [0.6, 0.01, 0.05, 0.95],
         duration: 1.25,
-        delay: 0.25,
+        delay: 0,
       }}
       className={`${props.bgColor} px-2.5 py-6 rounded-md items-start flex flex-col`}
     >

@@ -26,7 +26,7 @@ const About: React.FC<IAboutProps> = (props) => {
   const { push, prefetch } = useRouter();
   const ref = useRef<HTMLDivElement>(null);
   const isInVIew = useInView(ref, {
-    amount: 0.5
+    amount: 0.25
   });
   const mainControls = useAnimation();
   React.useEffect(() => {
@@ -57,7 +57,7 @@ const About: React.FC<IAboutProps> = (props) => {
       transition={{
         ease: [0.6, 0.01, 0.05, 0.95],
         duration: 1.25,
-        delay: 0.25,
+        delay: 0,
       }}
       className="flex w-11/12 lg:flex-row flex-col mx-auto text-secondary-900 py-28"
     >
