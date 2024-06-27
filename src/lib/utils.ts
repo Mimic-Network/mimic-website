@@ -22,7 +22,7 @@ interface ContactDetail {
 export const addDetailsToWaitList = async (body: UserDetail) => {
   try {
     const BASE_URL =
-      "https://script.google.com/macros/s/AKfycbx_oRiOQ_QE2UeCO-VOD3i8pvGYZeW094ngqNutSNFO00HRBBbYGHKcCgF8vrxN6-XaPQ/exec";
+      "https://script.google.com/macros/s/AKfycbysqHLcEktKGUDPzEAYRpcykqXzga2SuhEP2XSMemRwXAVXqzeGWcjdN583D-U59_7uTA/exec";
 
     const request = await fetch(BASE_URL, {
       method: "POST",
@@ -43,7 +43,7 @@ export const addDetailsToWaitList = async (body: UserDetail) => {
 export const addDetailsToContact = async (body: ContactDetail) => {
   try {
     const BASE_URL =
-      "https://script.google.com/macros/s/AKfycbytmFqstHbIXPM3R3TY_d1Rix3qdn-AX7SZFsACLKw3i3fY4FC5mP_lmLWnPKPkRxrv/exec";
+      "https://script.google.com/macros/s/AKfycbzqPGIIm8B61UzdZjh4PyIoMzUu-T61lluSmUpmF3NPQ_7AMOCmSLr3ZTB92zqCHccqIw/exec";
 
     const request = await fetch(BASE_URL, {
       method: "POST",
