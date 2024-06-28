@@ -14,6 +14,12 @@ import { Input } from "@src/components/ui/Input";
 import Button from "@src/components/ui/Button";
 import { X } from "lucide-react";
 import { addDetailsToWaitList } from "@src/lib/utils";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@src/components/ui/Tooltip";
 
 export interface IWaitlistModalProps {}
 
@@ -25,6 +31,15 @@ const FEATURES = [
   "Giftmoji",
   "TODOs",
 ];
+const DESCRIPTIONS = {
+  "Spot": "Find local businesses and events, get info, navigate maps, and stay updated with trending spots.",
+  "Meet new friends": "Connect with like-minded people, chat or video call, and build relationships.",
+  "Book sessions": "Book appointments, schedule meetings, set reminders, and stay organized.",
+  "Live PCGs": "Host and join public video calls on topics, share screens, and engage in real-time interactions.",
+  "Giftmoji": "Send and receive virtual gifts, track profile performance, and manage monetization and payouts.",
+  "TODOs": "Create and manage to-do lists, set reminders, and stay on top of tasks."
+}
+
 const WaitlistModal: React.FC<IWaitlistModalProps> = (props) => {
   const { isOpen, close } = React.useContext(WaitlistContext);
   const [selectedFeatures, setSelectedFeatures] = React.useState<string[]>([]);
@@ -103,40 +118,58 @@ const WaitlistModal: React.FC<IWaitlistModalProps> = (props) => {
               <Label className="text-black/50">Select features</Label>
               <div className="border border-secondary-100 min-h-[80px] rounded-md flex flex-wrap gap-3 p-3">
                 {selectedFeatures.map((val) => (
-                  <div
-                    key={val.replace("", "-").toLowerCase()}
-                    className={
-                      "bg-primary-900/5 border-[0.4px] w-max p-2.5 h-fit rounded-full px-3 space-x-3 py-2.5 text-primary-900 border-primary-900 flex"
-                    }
-                  >
-                    <span>{val}</span>
-                    <X
-                      className="cursor-pointer"
-                      onClick={() => {
-                        if (selectedFeatures.includes(val)) {
-                          setSelectedFeatures((prev) =>
-                            prev.filter((v) => v !== val),
-                          );
-                        }
-                      }}
-                    />
-                  </div>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger>
+                        <div
+                          key={val.replace("", "-").toLowerCase()}
+                          className={
+                            "bg-primary-900/5 border-[0.4px] w-max p-2.5 h-fit rounded-full px-3 space-x-3 py-2.5 text-primary-900 border-primary-900 flex"
+                          }
+                        >
+                          <span>{val}</span>
+                          <X
+                            className="cursor-pointer"
+                            onClick={() => {
+                              if (selectedFeatures.includes(val)) {
+                                setSelectedFeatures((prev) =>
+                                  prev.filter((v) => v !== val),
+                                );
+                              }
+                            }}
+                          />
+                        </div>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>{DESCRIPTIONS[val]}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
                 ))}
               </div>
             </div>
             <div className={"flex flex-wrap gap-3"}>
               {features.map((val) => (
-                <div
-                  key={val.replace("", "-").toLowerCase()}
-                  className={
-                    "bg-primary-900/5 cursor-pointer border-[0.4px] w-max p-2.5 h-fit rounded-full px-6 py-2.5 text-primary-900 border-primary-900"
-                  }
-                  onClick={() => {
-                    setSelectedFeatures((prev) => [...prev, val]);
-                  }}
-                >
-                  {val}
-                </div>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger>
+                      <div
+                        key={val.replace("", "-").toLowerCase()}
+                        className={
+                          "bg-primary-900/5 cursor-pointer border-[0.4px] w-max p-2.5 h-fit rounded-full px-6 py-2.5 text-primary-900 border-primary-900"
+                        }
+                        onClick={() => {
+                          setSelectedFeatures((prev) => [...prev, val]);
+                        }}
+                      >
+                        {val}
+                      </div>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{DESCRIPTIONS[val]}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               ))}
             </div>
             <Button
