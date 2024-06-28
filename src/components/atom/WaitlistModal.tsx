@@ -20,17 +20,11 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@src/components/ui/Tooltip";
+import { Description } from 'jackspeak';
 
 export interface IWaitlistModalProps {}
 
-const FEATURES = [
-  "Spot",
-  "Meet new friends",
-  "Book sessions",
-  "Live PCGs",
-  "Giftmoji",
-  "TODOs",
-];
+
 const DESCRIPTIONS = {
   "Spot": "Find local businesses and events, get info, navigate maps, and stay updated with trending spots.",
   "Meet new friends": "Connect with like-minded people, chat or video call, and build relationships.",
@@ -39,10 +33,17 @@ const DESCRIPTIONS = {
   "Giftmoji": "Send and receive virtual gifts, track profile performance, and manage monetization and payouts.",
   "TODOs": "Create and manage to-do lists, set reminders, and stay on top of tasks."
 }
-
+const FEATURES: Array<keyof typeof DESCRIPTIONS> = [
+  "Spot",
+  "Meet new friends",
+  "Book sessions",
+  "Live PCGs",
+  "Giftmoji",
+  "TODOs",
+];
 const WaitlistModal: React.FC<IWaitlistModalProps> = (props) => {
   const { isOpen, close } = React.useContext(WaitlistContext);
-  const [selectedFeatures, setSelectedFeatures] = React.useState<string[]>([]);
+  const [selectedFeatures, setSelectedFeatures] = React.useState<Array<keyof typeof DESCRIPTIONS>>([]);
   const features = FEATURES.filter((val) => !selectedFeatures.includes(val));
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -118,11 +119,12 @@ const WaitlistModal: React.FC<IWaitlistModalProps> = (props) => {
               <Label className="text-black/50">Select features</Label>
               <div className="border border-secondary-100 min-h-[80px] rounded-md flex flex-wrap gap-3 p-3">
                 {selectedFeatures.map((val) => (
-                  <TooltipProvider>
+                  <TooltipProvider
+                    key={val.replace("", "-").toLowerCase()}
+                  >
                     <Tooltip>
                       <TooltipTrigger>
                         <div
-                          key={val.replace("", "-").toLowerCase()}
                           className={
                             "bg-primary-900/5 border-[0.4px] w-max p-2.5 h-fit rounded-full px-3 space-x-3 py-2.5 text-primary-900 border-primary-900 flex"
                           }
@@ -150,11 +152,13 @@ const WaitlistModal: React.FC<IWaitlistModalProps> = (props) => {
             </div>
             <div className={"flex flex-wrap gap-3"}>
               {features.map((val) => (
-                <TooltipProvider>
+                <TooltipProvider
+                  key={val.replace("", "-").toLowerCase()}
+
+                >
                   <Tooltip>
                     <TooltipTrigger>
                       <div
-                        key={val.replace("", "-").toLowerCase()}
                         className={
                           "bg-primary-900/5 cursor-pointer border-[0.4px] w-max p-2.5 h-fit rounded-full px-6 py-2.5 text-primary-900 border-primary-900"
                         }
