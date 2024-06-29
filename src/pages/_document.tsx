@@ -71,12 +71,12 @@ export default function Document() {
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <meta name="msapplication-TileColor" content="#2F58B0" />
         <Script
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-SE71GKHH2P"
         />
         <Script
           id="google-analytics"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
