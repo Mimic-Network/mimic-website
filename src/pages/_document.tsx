@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import Script from 'next/script';
 
 export default function Document() {
   return (
@@ -69,6 +70,20 @@ export default function Document() {
         <link rel="manifest" href="/favicon/site.webmanifest" />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <meta name="msapplication-TileColor" content="#2F58B0" />
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-SE71GKHH2P"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-SE71GKHH2P');`,
+          }}
+        />
       </Head>
       <body>
       <Main />
