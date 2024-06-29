@@ -21,8 +21,7 @@ interface ContactDetail {
 
 export const addDetailsToWaitList = async (body: UserDetail) => {
   try {
-    const BASE_URL =
-      "https://script.google.com/macros/s/AKfycbysqHLcEktKGUDPzEAYRpcykqXzga2SuhEP2XSMemRwXAVXqzeGWcjdN583D-U59_7uTA/exec";
+    const BASE_URL = "https://script.google.com/macros/s/AKfycbysqHLcEktKGUDPzEAYRpcykqXzga2SuhEP2XSMemRwXAVXqzeGWcjdN583D-U59_7uTA/exec";
 
     const request = await fetch(BASE_URL, {
       method: "POST",

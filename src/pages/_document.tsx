@@ -13,6 +13,7 @@ export default function Document() {
           name="keywords"
           content="Mimic, Social, Networking, App, Interactions, Real-time, realtime, Twitter, Facebook, Social Media, Tweet"
         />
+        <meta name="google-site-verification" content="921UTIU2ikjqPF7lBJ0FnsdigpEwD5kZS9kjGXKs3BE" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta property="og:url" content="https://mimic-landing.netlify.app" />
         <meta property="og:type" content="website" />
@@ -70,8 +71,8 @@ export default function Document() {
         <meta name="msapplication-TileColor" content="#2F58B0" />
       </Head>
       <body>
-        <Main />
-        <NextScript />
+      <Main />
+      <NextScript />
       </body>
     </Html>
   );
