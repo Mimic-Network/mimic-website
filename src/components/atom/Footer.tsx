@@ -7,15 +7,15 @@ export interface IFooterProps {}
 const SOCIALS = [
   {
     icon: 'facebook.svg',
-    href: 'https://facebook.com',
+    href: 'https://www.facebook.com/profile.php?id=61561698539638&mibextid=JRoKGi',
   },
   {
     icon: 'instagram.svg',
-    href: 'https://instagram.com',
+    href: 'https://www.instagram.com/mimic_network_com?igsh=MTBwemNwNmQyMGtzcw==',
   },
   {
     icon: 'twitter.svg',
-    href: 'https://twitter.com',
+    href: 'https://x.com/mimic_network_?t=YyHpFpqxaothXpP1gAZ2hQ&s=09',
   },
 ];
 const LEGALS = [
