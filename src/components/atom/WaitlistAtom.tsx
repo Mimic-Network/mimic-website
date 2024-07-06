@@ -43,7 +43,7 @@ const WaitlistAtom: React.FC<IWaitlistAtomProps> = ({ val, onClick }) => {
             onClick={() => setOpen((prev) => !prev)}
           />
         </TooltipTrigger>
-        <TooltipContent>
+        <TooltipContent className="max-w-52">
           <p>{DESCRIPTIONS[val]}</p>
         </TooltipContent>
       </Tooltip>
