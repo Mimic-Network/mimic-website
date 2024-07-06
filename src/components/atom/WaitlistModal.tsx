@@ -21,6 +21,8 @@ import {
   TooltipTrigger,
 } from "@src/components/ui/Tooltip";
 import { Description } from 'jackspeak';
+import InfoBox from '@src/components/icons/InfoBox.icon';
+import InfoBoxIcon from '@src/components/icons/InfoBox.icon';
 
 export interface IWaitlistModalProps {}
 
@@ -160,13 +162,13 @@ const WaitlistModal: React.FC<IWaitlistModalProps> = (props) => {
                     <TooltipTrigger>
                       <div
                         className={
-                          "bg-primary-900/5 cursor-pointer border-[0.4px] w-max p-2.5 h-fit rounded-full px-6 py-2.5 text-primary-900 border-primary-900"
+                          "bg-primary-900/5 cursor-pointer border-[0.4px] w-max p-2.5 h-fit rounded-full px-6 py-2.5 text-primary-900 border-primary-900 inline-flex"
                         }
                         onClick={() => {
                           setSelectedFeatures((prev) => [...prev, val]);
                         }}
                       >
-                        {val}
+                        {val} <InfoBoxIcon className="ml-2" />
                       </div>
                     </TooltipTrigger>
                     <TooltipContent>
