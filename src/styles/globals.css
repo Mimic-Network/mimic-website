@@ -4,3 +4,6 @@
 body, html {
     overflow-x: hidden;
 }
+*{
+    user-select: none;
+}
