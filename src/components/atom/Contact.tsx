@@ -23,15 +23,15 @@ const CHANNELS = [
     value: "infor@mimic.com",
     href: "mailto:infor@mimic.com",
   },
-  {
-    icon: Phone,
+  /*{
+    //icon: Phone,
     title: "Phone number",
     value: "+234 92764781",
     href: "tel:+23492764781",
-  },
+  },*/
   {
     icon: MapPin,
-    value: "901 N Pitt Str., Suite 170 Alexandria, VA 22314, USA",
+    value: "Lagos, Nigeria.",
   },
 ];
 const SOCIALS = [
