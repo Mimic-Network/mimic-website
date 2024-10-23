@@ -6,16 +6,20 @@ export interface IPrivacyPolicyProps { }
 type Children = {
   type: string;
   content?: string;
-  children?: Array<Omit<Children, 'children'>>;
+  children?: Array<Children>;
 };
 
-const PRIVACY_POLICY = [
+const PRIVACY_POLICY: Array<{ title: string, children: Array<Children> }> = [
   {
     "title": "Privacy Policy for Mimic Network",
     "children": [
       {
         "type": "p",
-        "content": "Effective Date: 20th September, 2024. At Mimic Network, we are committed to protecting your privacy and ensuring that your personal information is handled in a safe and responsible manner. This Privacy Policy outlines how we collect, use, and protect the information you provide while using the Mimic Network platform, available at mimic-network.com and through our mobile app (collectively, the 'Service')."
+        "content": "Effective Date: 20th September, 2024."
+      },
+      {
+        "type": "p",
+        "content": "At Mimic Network, we are committed to protecting your privacy and ensuring that your personal information is handled in a safe and responsible manner. This Privacy Policy outlines how we collect, use, and protect the information you provide while using the Mimic Network platform, available at mimic-network.com and through our mobile app (collectively, the 'Service')."
       }
     ]
   },
@@ -27,11 +31,57 @@ const PRIVACY_POLICY = [
         "children": [
           {
             "type": "li",
-            "content": "Personal Information: Name, email address, phone number, profile picture, gender, and birthdate during the account creation process. Information you voluntarily share when creating a profile, posting, or communicating with other users. Payment information when conducting transactions on the platform (via third-party payment providers)."
+            children: [
+              {
+                type: "p",
+                content: "Personal Information:"
+
+              },
+              {
+                "type": "ul",
+                "children": [
+                  {
+                    "type": "li",
+                    "content": "Name, email address, phone number, profile picture, gender, and birthdate during the account creation process."
+                  },
+                  {
+                    "type": "li",
+                    "content": "Information you voluntarily share when creating a profile, posting, or communicating with other users."
+                  },
+                  {
+                    "type": "li",
+                    "content": "Payment information when conducting transactions on the platform (via third-party payment providers)."
+                  }
+                ],
+              }
+            ],
           },
           {
             "type": "li",
-            "content": "Usage Data: Device information (IP address, device type, operating system, browser type, etc.). Usage activity, including interactions with other users, content you view, and features you use. Location information (if you choose to share your location)."
+            children: [
+              {
+                type: "p",
+                content: "Usage Data:"
+
+              },
+              {
+                "type": "ul",
+                "children": [
+                  {
+                    "type": "li",
+                    "content": "Device information (IP address, device type, operating system, browser type, etc.)."
+                  },
+                  {
+                    "type": "li",
+                    "content": "Usage activity, including interactions with other users, content you view, and features you use."
+                  },
+                  {
+                    "type": "li",
+                    "content": "Location information (if you choose to share your location)."
+                  }
+                ],
+              }
+            ],
           }
         ]
       }
@@ -41,7 +91,7 @@ const PRIVACY_POLICY = [
     "title": "2. How We Use Your Information",
     "children": [
       {
-        "type": "ol",
+        "type": "ul",
         "children": [
           {
             "type": "li",
@@ -79,7 +129,7 @@ const PRIVACY_POLICY = [
     "title": "3. Sharing Your Information",
     "children": [
       {
-        "type": "ol",
+        "type": "ul",
         "children": [
           {
             "type": "li",
@@ -110,7 +160,7 @@ const PRIVACY_POLICY = [
     "title": "5. Your Privacy Choices",
     "children": [
       {
-        "type": "ol",
+        "type": "ul",
         "children": [
           {
             "type": "li",
@@ -164,8 +214,16 @@ const PRIVACY_POLICY = [
     "children": [
       {
         "type": "p",
-        "content": "If you have any questions or concerns about this Privacy Policy or the handling of your personal information, please contact us at: Mimic Network Email: support@mimic-network.com."
-      }
+        "content": "If you have any questions or concerns about this Privacy Policy or the handling of your personal information, please contact us at:"
+      },
+      {
+        "type": "p",
+        "content": "Mimic Network"
+      },
+      {
+        "type": "p",
+        "content": "Email: support@mimic-network.com."
+      },
     ]
   }
 ]
@@ -179,15 +237,19 @@ export const renderChildren = (children: Array<Children>) => {
         </p>
       );
     }
-    if (child.type === 'ol') {
+    if (['ol', 'ul'].includes(child.type)) {
+      const slot = child.type === 'ol' ? 'list-[lower-alpha]' : 'list-disc';
       return (
         <ol key={index}>
           {child.children?.map((li, indexList) => (
             <li
               key={child.type + index + indexList}
-              className="list-disc font-medium m-5"
+              className={`${slot} font-medium m-5`}
             >
               {li.content}
+              {
+                li.children && renderChildren(li.children)
+              }
             </li>
           ))}
         </ol>
