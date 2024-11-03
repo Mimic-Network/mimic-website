@@ -27,6 +27,10 @@ const LEGALS = [
     text: 'Terms and conditions',
     href: '/terms-conditions',
   },
+  {
+    text: 'Community Guidelines',
+    href: '/community-guidelines',
+  },
 ];
 const Footer: React.FC<IFooterProps> = (props) => {
   return (
