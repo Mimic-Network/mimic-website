@@ -21,7 +21,7 @@ const CHANNELS = [
     icon: Mail,
     title: "Email us",
     value: "infor@mimic.com",
-    href: "mailto:infor@mimic.com",
+    href: "mailto:contactus@mimic-network.com",
   },
   /*{
     //icon: Phone,
@@ -31,7 +31,7 @@ const CHANNELS = [
   },*/
   {
     icon: MapPin,
-    value: "Lagos, Nigeria.",
+    value: "Middletown Delaware, USA.",
   },
 ];
 const SOCIALS = [
