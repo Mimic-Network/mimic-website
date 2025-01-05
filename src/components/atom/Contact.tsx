@@ -20,7 +20,7 @@ const CHANNELS = [
   {
     icon: Mail,
     title: "Email us",
-    value: "infor@mimic.com",
+    value: "contactus@mimic-network.com",
     href: "mailto:contactus@mimic-network.com",
   },
   /*{
